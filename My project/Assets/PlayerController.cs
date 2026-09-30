@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 10f; //public 외부공용, private 비공개
+
+    int[] scores = new int[5];
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,11 +17,19 @@ public class PlayerController : MonoBehaviour
         //transform.position = newPos;
         //Vector3 newPos;
         //transform.position = Vector3.one; // (1, 1, 1)
-//if (Input.GetKey(KeyCode.UpArrow)){this.transform.Translate(0, speed, 0);}
-//if (Input.GetKey(KeyCode.DownArrow)){this.transform.Translate(0, -speed, 0);}
-//if (Input.GetKey(KeyCode.RightArrow)){this.transform.Translate(speed, 0, 0);}
-//if (Input.GetKey(KeyCode.LeftArrow)){this.transform.Translate(-speed, 0, 0);}
+        //if (Input.GetKey(KeyCode.UpArrow)){this.transform.Translate(0, speed, 0);}
+        //if (Input.GetKey(KeyCode.DownArrow)){this.transform.Translate(0, -speed, 0);}
+        //if (Input.GetKey(KeyCode.RightArrow)){this.transform.Translate(speed, 0, 0);}
+        //if (Input.GetKey(KeyCode.LeftArrow)){this.transform.Translate(-speed, 0, 0);}
 
+        for (int i = 0; i < scores.Length; i++)
+            scores[i] = (i+1)*10;
+
+        Debug.Log(scores[0]);
+        Debug.Log(scores[1]);
+        Debug.Log(scores[2]);
+        Debug.Log(scores[3]);
+        Debug.Log(scores[4]);
     }
 
     // Update is called once per frame
