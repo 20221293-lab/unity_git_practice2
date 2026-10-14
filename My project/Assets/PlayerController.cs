@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 10f; //public 외부공용, private 비공개
     public GameObject BulletPrefab;
-    public float bulletSpeed = 400f;
+    public float BulletSpeed = 400f;
 
     //int[] scores = new int[5];
 
@@ -45,9 +45,20 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject Bullet = Instantiate(BulletPrefab);//실체화
-            Bullet.transform.position = transform.position; //불릿의 위치 = 플레이어의 현재 위치
-            Bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bulletSpeed);
+            //GameObject Bullet = Instantiate(BulletPrefab);//실체화
+            //Bullet.transform.position = transform.position; //불릿의 위치 = 플레이어의 현재 위치
+            //Bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bulletSpeed);
+
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject Bullet = Instantiate(BulletPrefab);
+                Vector3 bulletPos = transform.position;
+                bulletPos.y += 0.3f * i;
+                Bullet.transform.position = transform.position;
+                Bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.up * BulletSpeed);
+                Bullet.transform.position = bulletPos;
+            }
+
         }
 
     }

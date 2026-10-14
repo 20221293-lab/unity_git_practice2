@@ -7,8 +7,6 @@ public class Bullet : MonoBehaviour
     {
         Invoke("Destroyself", 2.0f);
     }
-
-
     void Destroyself()
     {
         Destroy(gameObject);
