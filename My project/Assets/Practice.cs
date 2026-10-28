@@ -84,14 +84,21 @@ public class Practice : MonoBehaviour
         {
             return num / 2;
         }
-    }
 
+        public int Age { get { return age; } set { Debug.Log(value); age = value; }
+
+        }
+
+    }
+        //Human Alice = new Human("alice", 213, 160);
+        //Alice.Age = 15;
+        //Debug.Log(Alice.age);
     //void Start() { }
     //Human john = new Human(); // new = 메모리에 인간 john 객체 을 할당하십시오.
     //Human Alice = new Human("alice", 23, 160);
 
     void Update()
-    {
-        
+        {
+
+        }
     }
-}
