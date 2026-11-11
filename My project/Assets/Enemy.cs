@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+
     //public void TakeDamage(float ratio)
     //{
     //    health -= (int)(health * ratio);
@@ -38,7 +40,12 @@ public class Enemy : MonoBehaviour
         {
             TakeDamege(10);
             collision.gameObject.SetActive(false);
-            //Debug.Log("Health : " + health);
+        Debug.Log("Health : " + health);
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Die();  
+            Debug.Log("Die");
         }
     }
 

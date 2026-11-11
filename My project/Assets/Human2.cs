@@ -6,7 +6,7 @@ public class Human2 : MonoBehaviour
     // Update is called once per frame
 
 
- 
+
     void Start()
     {
 
@@ -28,7 +28,46 @@ public class Human2 : MonoBehaviour
         //Human Bob = new Human("bob", 26, 165.5f);
         //Adult tmpA = (Adult)Bob;
 
+        //Human jason = new Adult("jason", 32, 172);
+        //Adult adult = (Adult)jason;
+
+        Human Paul = new Human("paul", 3, 90);  //Human은 값이 작어서 않되 (Human<Adult)
+        Adult adult = Paul as Adult;
+
+        if (adult == null)
+        {
+            Debug.Log("형변환 실패");
+        }
+        else
+        {
+            Debug.Log("형변환 성공");
+        }
+
+        Human Alexis = new Adult("alexis", 23, 155); //묵시적 형변환 (Human⊃Adult) 이라 Human 에서 Adult를 생성해도 상관 x
+        Adult adult_alexis = Alexis as Adult;
+
+        if (adult_alexis == null)
+        {
+            Debug.Log("형변환 실패");
+        }
+        else
+        {
+            Debug.Log("형변환 성공");
+        }
+
+        Human Alexis2 = new Adult("alexis2", 23, 155); //형변환 됐나요? > yes = ture 나옴
+        Debug.Log(Alexis2 is Adult);
+
+
+        Bird eagle = new Bird();
+        Fish shark = new Fish();
+        eagle.Move();
+        shark.Move();
+
+
     }
+
+
 
     class Human
     {
@@ -59,8 +98,8 @@ public class Human2 : MonoBehaviour
             age = _age;
         }
         public Human()
-        { 
-        
+        {
+
         }
 
         public Human(string _name, int _age, float _height)
@@ -83,7 +122,7 @@ public class Human2 : MonoBehaviour
             Debug.Log("sleep");
         }
 
-  
+
         //void Start()
         //{
         //    float result = Half(4);
@@ -131,7 +170,37 @@ public class Human2 : MonoBehaviour
     //Human john = new Human(); // new = 메모리에 인간 john 객체 을 할당하십시오.
     //Human Alice = new Human("alice", 213, 160);
 
-}
+
+
+    abstract class Animal
+    {
+        public abstract void Move();
+
+        public void Eat()
+        {
+            Debug.Log("eat");
+        }
+
+    }
+    class Bird : Animal
+    {
+        public override void Move()
+        {
+            Debug.Log("fly");
+        }
+
+    }
+    class Fish : Animal
+        {
+            public override void Move()
+            {
+                Debug.Log("swim");
+            }
+
+        }
+
+
+    }
 
 
 
